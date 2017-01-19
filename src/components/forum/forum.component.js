@@ -15,11 +15,10 @@ angular.module('AltimitForum')
 
   function buildForums(responseForum){
     var temp = {};
-    console.log(responseForum);
 
     responseForum.forEach(function(forum){
-      if(!me.forums[forum.id]){
-        me.forums[forum.id] = {
+      if(!me.forums[forum.forum_id]){
+        me.forums[forum.forum_id] = {
           forum_name: forum.forum_name,
           forum_description: forum.forum_description,
           catagories: [{
@@ -27,7 +26,7 @@ angular.module('AltimitForum')
             catagory_name: forum.catagory_name,
             topic_count: forum.topic_count,
             topic_last_user: forum.topic_last_user,
-            topic_last_update: forum.topic_last_update
+            topic_last_update: forum.topic_last_update ? new Date(forum.topic_last_update) : null
           }]
         }
       }else {
@@ -36,9 +35,9 @@ angular.module('AltimitForum')
           catagory_name: forum.catagory_name,
           topic_count: forum.topic_count,
           topic_last_user: forum.topic_last_user,
-          topic_last_update: forum.topic_last_update
+          topic_last_update: forum.topic_last_update ? new Date(forum.topic_last_update) : null
         };
-        me.forums[forum.id].catagories.push(temp);
+        me.forums[forum.forum_id].catagories.push(temp);
       }
     });
 

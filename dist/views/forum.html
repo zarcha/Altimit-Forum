@@ -9,9 +9,9 @@
           <tr>
             <td class="catagory_td">
               <div class="list-group-heading">
-              <span class="catagory catagory_title">{{catagory.catagory_name}}</span>
+              <a class="catagory_title" href="#!/catagory/{{catagory.catagory_id}}">{{catagory.catagory_name}}</a>
               </div>
-              <p class="list-group-item-text catagory_last_update">{{catagory.catagory_last_update | date}}</p></td>
+              <p ng-show="{{catagory.topic_last_update}}" class="list-group-item-text catagory_last_update">Last post on {{catagory.topic_last_update | date}} by </p></td>
             <td>
               <span class="badge">Topics: {{catagory.topic_count}}</span>
             </td>
@@ -21,3 +21,9 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
