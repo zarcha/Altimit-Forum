@@ -1,0 +1,10 @@
+<div ng-repeat= "forum in Ctrl.forums">
+  <div class="panel panel-default">
+    <div class="panel-heading">{{forum.forum_name}}</div>
+    <div class="panel-body">
+      <div ng-repeat="catagory in forum.catagories">
+        <h4 class="catagory">{{catagory.catagory_name}}</h4>
+      </div>
+    </div>
+  </div>
+</div>

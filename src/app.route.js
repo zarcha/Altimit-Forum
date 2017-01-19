@@ -4,7 +4,7 @@ angular.module('AltimitForum')
 .config(function($routeProvider){
   $routeProvider
   .when('/', {
-    templateUrl: 'views/main.html',
+    templateUrl: 'views/forum.html',
     controller: 'forumCtrl',
     controllerAs: 'Ctrl'
   })
