@@ -1,18 +1,16 @@
 <html ng-app="AltimitForum">
   <head>
     <title>Altimit Forum</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/ven.min.js"></script>
     <script src="scripts/app.min.js"></script>
-    <link rel="stylesheet" href="styles/app.min.css">
+    <link rel="stylesheet" href="styles/ven.css">
+    <link rel="stylesheet" href="styles/app.css">
   </head>
 
   <body>
     <div ng-include="'views/header.html'"></div>
-
-    <div ng-view></div>
+    <div class="container">
+      <div ng-view></div>
+    </div>
   </body>
 </html>

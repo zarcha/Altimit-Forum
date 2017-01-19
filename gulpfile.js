@@ -7,11 +7,22 @@ gulp.task('scripts', function(){
   gulp.src(['src/app.route.js', 'src/components/*/*.*.js'])
   .pipe(concat('app.min.js'))
   .pipe(gulp.dest('./dist/scripts'));
+
+  gulp.src(['node_modules/angular/angular.min.js',
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/angular-route/angular-route.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.min.js'])
+  .pipe(concat('ven.min.js'))
+  .pipe(gulp.dest('./dist/scripts'));
 });
 
 gulp.task('styles', function(){
   gulp.src(['src/styles/*.css'])
-  .pipe(concat('app.min.css'))
+  .pipe(concat('app.css'))
+  .pipe(gulp.dest('./dist/styles'));
+
+  gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css'])
+  .pipe(concat('ven.css'))
   .pipe(gulp.dest('./dist/styles'));
 });
 
@@ -24,6 +35,9 @@ gulp.task('moveFiles', function(){
 
   gulp.src('src/images/*.*')
   .pipe(gulp.dest('./dist/images'));
+
+  gulp.src('node_modules/bootstrap/dist/fonts/*.*')
+  .pipe(gulp.dest('./dist/fonts'));
 });
 
 gulp.task('build', ['moveFiles', 'scripts', 'styles'], function(){

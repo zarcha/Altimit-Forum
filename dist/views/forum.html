@@ -1,9 +1,22 @@
 <div ng-repeat= "forum in Ctrl.forums">
   <div class="panel panel-default">
-    <div class="panel-heading">{{forum.forum_name}}</div>
-    <div class="panel-body">
-      <div ng-repeat="catagory in forum.catagories">
-        <h4 class="catagory">{{catagory.catagory_name}}</h4>
+    <div class="panel-heading">
+      <span class="forum_title">{{forum.forum_name}}</span>
+    </div>
+    <div class="panel-body list-group">
+      <div class="list-group-item" ng-repeat="catagory in forum.catagories">
+        <table>
+          <tr>
+            <td class="catagory_td">
+              <div class="list-group-heading">
+              <span class="catagory catagory_title">{{catagory.catagory_name}}</span>
+              </div>
+              <p class="list-group-item-text catagory_last_update">{{catagory.catagory_last_update | date}}</p></td>
+            <td>
+              <span class="badge">Topics: {{catagory.topic_count}}</span>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
