@@ -17,22 +17,3 @@
     font-size: 12px;
     color: gray;
 }
-
-.forum_title {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.catagory_td {
-  width: 100%;
-}
-
-.catagory_title {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.catagory_last_update {
-    font-size: 12px;
-    color: gray;
-}

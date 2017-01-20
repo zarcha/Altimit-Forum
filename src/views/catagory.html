@@ -1,15 +1,13 @@
 <div class="panel panel-default">
-  <div class="panel-heading">{{Ctrl.catagory_name}}</div>
+  <div class="panel-heading catagory_title">{{Ctrl.catagory_name}}</div>
   <div class="panel-body">
-    <div ng-show="{{Ctrl.topic.length > 0}}" class="list-group">
+    <div class="list-group">
       <div class="list-group-item" ng-repeat="topic in Ctrl.topic">
         <div class="list-group-heading">
-          <a href="#/{{topic.url}}">{{topic.topic_name}}</a>
+          <a href="#/{{topic.url}}" class="topic_title">{{topic.topic_name}}</a>
         </div>
         <p class="list-group-item-text">test</p>
       </div>
     </div>
-
-    <span ng-show="{{!Ctrl.topic.length > 0}}">No topics</span>
   </div>
 </div>

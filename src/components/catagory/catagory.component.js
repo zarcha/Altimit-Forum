@@ -3,7 +3,7 @@ angular.module('AltimitForum')
   var me = this;
 
   me.catagory_name = "";
-  me.topic = [];
+  me.topic;
 
   $http({
         method : "GET",
@@ -16,13 +16,11 @@ angular.module('AltimitForum')
 
   function buildTopics(responseTopic){
     if(responseTopic.length > 0 && responseTopic[0].topic_name){
-      responseTopic.forEach(function(topic){
-        topic.url = "urlTest";
-      });
-
       me.topic = responseTopic;
     }
 
     me.catagory_name = responseTopic[0].catagory_name;
+
+    console.log(me.topic);
   }
 }]);
