@@ -3,19 +3,33 @@
   font-size: 18px;
 }
 
-.topic_td {
+.topic_title_td {
   width: 100%;
 }
 
 .topic_title {
   font-weight: bold;
   font-size: 16px;
-  text-decoration: none;
 }
 
-.topic_last_update {
-    font-size: 12px;
-    color: gray;
+.topic_description {
+  font-size: 12px;
+  color: gray;
+}
+
+.topic_info_td {
+  width: 100px;
+  height: 50px;
+  font-size: 12px;
+  color: gray;
+  border-left: 1px solid black;
+
+}
+
+.topic_info {
+  text-align: center;
+  position: relative;
+  line-height: 50px;
 }
 
 .forum_title {
@@ -23,7 +37,7 @@
   font-size: 18px;
 }
 
-.catagory_td {
+.catagory_title_td {
   width: 100%;
 }
 
@@ -32,7 +46,32 @@
   font-size: 16px;
 }
 
-.catagory_last_update {
-    font-size: 12px;
-    color: gray;
+.catagory_description {
+  font-size: 12px;
+  color: gray;
+}
+
+.catagory_info_td {
+  width: 100px;
+  height: 50px;
+  font-size: 12px;
+  color: gray;
+  border-left: 1px solid black;
+
+}
+
+.catagory_info {
+  text-align: center;
+  position: relative;
+  line-height: 50px;
+}
+
+.login_box {
+  width: 40%;
+  position: relative;
+  left: 30%;
+}
+
+.login_button {
+  right: 0px;
 }

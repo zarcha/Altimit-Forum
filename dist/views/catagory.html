@@ -1,13 +1,28 @@
 <div class="panel panel-default">
   <div class="panel-heading catagory_title">{{Ctrl.catagory_name}}</div>
-  <div class="panel-body">
-    <div class="list-group">
-      <div class="list-group-item" ng-repeat="topic in Ctrl.topic">
-        <div class="list-group-heading">
-          <a href="#/{{topic.url}}" class="topic_title">{{topic.topic_name}}</a>
-        </div>
-        <p class="list-group-item-text">test</p>
-      </div>
+  <div class="panel-body list-group">
+    <div class="list-group-item" ng-repeat="topic in Ctrl.topic">
+      <table>
+        <tr>
+          <td class="topic_title_td">
+            <div class="list-group-heading">
+              <a class="topic_title" href="#!/topic/{{topic_id}}">{{topic.topic_name}}</a>
+              <p class="topic_description">{{topic.topic_description}}</p>
+            </div>
+          </td>
+          <td>
+            <div class="topic_info_td">
+              <p class="topic_info">Posts: {{topic.post_count}}</p>
+            </div>
+          </td>
+          <td>
+            <div class="topic_info_td">
+              <p ng-show="topic.post_last_update" class="list-group-item-text topic_info">Last post on {{topic.post_last_update | date}} by {{last_poster}}</p>
+              <p ng-hide="topic.post_last_update" class="list-group-item-text topic_info">None</p>
+            </td>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

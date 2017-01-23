@@ -1,0 +1,9 @@
+.login_box {
+  width: 40%;
+  position: relative;
+  left: 30%;
+}
+
+.login_button {
+  right: 0px;
+}

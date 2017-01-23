@@ -7,13 +7,21 @@
       <div class="list-group-item" ng-repeat="catagory in forum.catagories">
         <table>
           <tr>
-            <td class="catagory_td">
+            <td class="catagory_title_td">
               <div class="list-group-heading">
-              <a class="catagory_title" href="#!/catagory/{{catagory.catagory_id}}">{{catagory.catagory_name}}</a>
+                <a class="catagory_title" href="#!/catagory/{{catagory.catagory_id}}">{{catagory.catagory_name}}</a>
+                <p ng-show="catagory.catagory_description" class="catagory_description">{{catagory.catagory_description}}</p>
               </div>
-              <p ng-show="{{catagory.topic_last_update}}" class="list-group-item-text catagory_last_update">Last post on {{catagory.topic_last_update | date}} by </p></td>
             <td>
-              <span class="badge">Topics: {{catagory.topic_count}}</span>
+              <div class="catagory_info_td">
+                <p class="catagory_info">Topics: {{catagory.topic_count}}</p>
+              </div>
+            </td>
+            <td>
+              <div class="catagory_info_td">
+                <p ng-show="catagory.topic_last_update" class="list-group-item-text catagory_info">Last post on {{catagory.topic_last_update | date}} by </p>
+                <p ng-hide="catagory.topic_last_update" class="list-group-item-text catagory_info">None</p>
+              </div>
             </td>
           </tr>
         </table>

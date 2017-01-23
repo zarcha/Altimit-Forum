@@ -24,6 +24,7 @@ angular.module('AltimitForum')
           catagories: [{
             catagory_id: forum.catagory_id,
             catagory_name: forum.catagory_name,
+            catagory_description: forum.catagory_description,
             topic_count: forum.topic_count,
             topic_last_user: forum.topic_last_user,
             topic_last_update: forum.topic_last_update ? new Date(forum.topic_last_update) : null
@@ -33,6 +34,7 @@ angular.module('AltimitForum')
         temp = {
           catagory_id: forum.catagory_id,
           catagory_name: forum.catagory_name,
+          catagory_description: forum.catagory_description,
           topic_count: forum.topic_count,
           topic_last_user: forum.topic_last_user,
           topic_last_update: forum.topic_last_update ? new Date(forum.topic_last_update) : null
