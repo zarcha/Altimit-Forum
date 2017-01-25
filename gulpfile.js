@@ -4,7 +4,7 @@ var connect = require('gulp-connect');
 var watch = require('gulp-watch');
 
 gulp.task('scripts', function(){
-  gulp.src(['src/app.route.js', 'src/components/*/*.*.js'])
+  gulp.src(['src/app.route.js', 'src/services/*/*.*.js', 'src/components/*/*.*.js'])
   .pipe(concat('app.min.js'))
   .pipe(gulp.dest('./dist/scripts'));
 

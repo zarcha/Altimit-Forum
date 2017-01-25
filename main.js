@@ -34,9 +34,8 @@ passport.deserializeUser(function(user, done) {
 
 passport.use(new localStrategy(
   function(username, password, done) {
-
-    con.query(`SELECT un.username, us.password FROM users AS us LEFT JOIN username AS un ON us.id = un.id WHERE un.username = '${username}' AND us.password = '${password}'`, function(err, rows){
-      if (err) { return done(err); }
+    con.query(`SELECT un.username, us.password FROM users AS us LEFT JOIN username AS un ON us.id = un.id WHERE un.username = '${username}'`, function(err, rows){
+      if (err) { return done("stuff"); }
       var user;
 
       if(rows && rows.length == 1) {

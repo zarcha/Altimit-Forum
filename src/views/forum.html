@@ -10,17 +10,20 @@
             <td class="catagory_title_td">
               <div class="list-group-heading">
                 <a class="catagory_title" href="#!/catagory/{{catagory.catagory_id}}">{{catagory.catagory_name}}</a>
-                <p ng-show="catagory.catagory_description" class="catagory_description">{{catagory.catagory_description}}</p>
+                <p ng-show="catagory.catagory_description" class="catagory_description">- {{catagory.catagory_description}}</p>
               </div>
             <td>
               <div class="catagory_info_td">
-                <p class="catagory_info">Topics: {{catagory.topic_count}}</p>
+                <p class="post_count">Topics: {{catagory.topic_count}}</p>
               </div>
             </td>
             <td>
               <div class="catagory_info_td">
-                <p ng-show="catagory.topic_last_update" class="list-group-item-text catagory_info">Last post on {{catagory.topic_last_update | date}} by </p>
-                <p ng-hide="catagory.topic_last_update" class="list-group-item-text catagory_info">None</p>
+                <div ng-show="catagory.topic_last_update" class="list-group-item-text topic_update">
+                  <span>{{catagory.topic_last_update | date}}</span></br>
+                  <span>{{catagory.topic_last_user}}</span>
+                </div>
+                <p ng-hide="catagory.topic_last_update" class="list-group-item-text post_count">None</p>
               </div>
             </td>
           </tr>

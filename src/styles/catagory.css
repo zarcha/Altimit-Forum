@@ -15,6 +15,7 @@
 .topic_description {
   font-size: 12px;
   color: gray;
+  margin-left: 10px;
 }
 
 .topic_info_td {
@@ -22,12 +23,18 @@
   height: 50px;
   font-size: 12px;
   color: gray;
-  border-left: 1px solid black;
+  border-left: 1px solid #ddd;
 
 }
 
-.topic_info {
+.post_count {
   text-align: center;
   position: relative;
   line-height: 50px;
+}
+
+.post_update {
+  text-align: center;
+  position: relative;
+  top: 20%;
 }

@@ -1,15 +1,17 @@
+<div ng-show="Ctrl.errorMessage !== ''" class="alert alert-danger">{{Ctrl.errorMessage}}</div>
+
 <div class="panel panel-default login_box">
   <div class="panel-body">
     <form>
       <div class="form-group">
         <label for="email">Username:</label>
-        <input type="text" class="form-control" id="username" placeholder="Username">
+        <input type="text" class="form-control" placeholder="Username" ng-model="Ctrl.username" required>
       </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="password" class="form-control" placeholder="Password" id="pwd">
+        <input type="password" class="form-control" placeholder="Password" ng-model="Ctrl.password" required>
       </div>
-      <button type="submit" class="btn btn-default pull-right">Login</button>
+      <button class="btn btn-default pull-right" ng-click="Ctrl.login()">Login</button>
     </form>
   </div>
 </div>

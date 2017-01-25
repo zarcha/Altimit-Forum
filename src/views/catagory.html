@@ -7,18 +7,21 @@
           <td class="topic_title_td">
             <div class="list-group-heading">
               <a class="topic_title" href="#!/topic/{{topic_id}}">{{topic.topic_name}}</a>
-              <p class="topic_description">{{topic.topic_description}}</p>
+              <p class="topic_description">- {{topic.topic_description}}</p>
             </div>
           </td>
           <td>
             <div class="topic_info_td">
-              <p class="topic_info">Posts: {{topic.post_count}}</p>
+              <p class="post_count">Posts: {{topic.post_count}}</p>
             </div>
           </td>
           <td>
             <div class="topic_info_td">
-              <p ng-show="topic.post_last_update" class="list-group-item-text topic_info">Last post on {{topic.post_last_update | date}} by {{last_poster}}</p>
-              <p ng-hide="topic.post_last_update" class="list-group-item-text topic_info">None</p>
+              <div ng-show="topic.post_last_update" class="list-group-item-text topic_update">
+                <span>{{topic.post_last_update | date}}</span>
+                <span>{{topic.last_poster}}</span>
+              </div>
+              <p ng-hide="topic.post_last_update" class="list-group-item-text post_count">None</p>
             </td>
           </td>
         </tr>

@@ -20,7 +20,5 @@ angular.module('AltimitForum')
     }
 
     me.catagory_name = responseTopic[0].catagory_name;
-
-    console.log(me.topic);
   }
 }]);

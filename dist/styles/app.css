@@ -15,6 +15,7 @@
 .topic_description {
   font-size: 12px;
   color: gray;
+  margin-left: 10px;
 }
 
 .topic_info_td {
@@ -22,14 +23,20 @@
   height: 50px;
   font-size: 12px;
   color: gray;
-  border-left: 1px solid black;
+  border-left: 1px solid #ddd;
 
 }
 
-.topic_info {
+.post_count {
   text-align: center;
   position: relative;
   line-height: 50px;
+}
+
+.post_update {
+  text-align: center;
+  position: relative;
+  top: 20%;
 }
 
 .forum_title {
@@ -49,6 +56,7 @@
 .catagory_description {
   font-size: 12px;
   color: gray;
+  margin-left: 10px;
 }
 
 .catagory_info_td {
@@ -56,22 +64,24 @@
   height: 50px;
   font-size: 12px;
   color: gray;
-  border-left: 1px solid black;
+  border-left: 1px solid #ddd;
 
 }
 
-.catagory_info {
+.post_count {
   text-align: center;
   position: relative;
   line-height: 50px;
+}
+
+.topic_update {
+  text-align: center;
+  position: relative;
+  top: 20%;
 }
 
 .login_box {
   width: 40%;
   position: relative;
   left: 30%;
-}
-
-.login_button {
-  right: 0px;
 }
