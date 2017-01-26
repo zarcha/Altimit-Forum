@@ -1,5 +1,3 @@
-var app = angular.module('AltimitForum', ['ngRoute']);
-
 angular.module('AltimitForum')
 .config(function($routeProvider){
   $routeProvider

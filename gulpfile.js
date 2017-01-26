@@ -4,11 +4,11 @@ var connect = require('gulp-connect');
 var watch = require('gulp-watch');
 
 gulp.task('scripts', function(){
-  gulp.src(['src/app.route.js', 'src/services/*/*.*.js', 'src/components/*/*.*.js'])
+  gulp.src(['src/services/*/*.*.js', 'src/app.module.js', 'src/app.route.js', 'src/components/*/*.*.js', 'src/directives/*/*.*.js'])
   .pipe(concat('app.min.js'))
   .pipe(gulp.dest('./dist/scripts'));
 
-  gulp.src(['node_modules/angular/angular.min.js',
+  gulp.src(['node_modules/angular/angular.js',
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/angular-route/angular-route.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js'])
@@ -42,6 +42,6 @@ gulp.task('moveFiles', function(){
 
 gulp.task('build', ['moveFiles', 'scripts', 'styles'], function(){
   gulp.watch(['src/index.html', 'src/views/*.html'], ['moveFiles']);
-  gulp.watch(['src/app.route.js', 'src/components/*/*.*.js'], ['scripts']);
+  gulp.watch(['src/app.route.js', 'src/app.module.js', 'src/components/*/*.*.js', 'src/services/*/*.*.js', 'src/directives/*/*.*.js'], ['scripts']);
   gulp.watch(['src/styles/*.css'], ['styles']);
 });

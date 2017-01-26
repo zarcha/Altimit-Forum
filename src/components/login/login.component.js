@@ -1,14 +1,28 @@
 angular.module('AltimitForum')
-.controller('loginCtrl', ['$scope', '$http', function($scope, $http){
+.controller('loginCtrl', ['$scope', '$http', '$location','authService', function($scope, $http, $location, authService){
   var me = this;
-  me.getUser = getUser;
 
   me.username = '';
   me.password = '';
 
   me.errorMessage = '';
 
-  me.login = function(){
+  //Functions
+  me.login = login;
+  me.checkLogin = checkLogin;
+
+  //Call this so that we can redirect if they are already logged in
+  me.checkLogin();
+  function checkLogin(){
+    authService.getUser().then(function(){
+      if(authService.userData){
+        $location.path('/');
+      }
+    });
+  }
+
+  //Login through API/passport
+  function login(){
     var req = {
       method: 'POST',
       url: '/api/login',
@@ -23,24 +37,11 @@ angular.module('AltimitForum')
 
     $http(req).then(function(response){
       me.errorMessage = '';
+      checkLogin();
     },
     function(response){
       me.errorMessage = 'An error occured during login. Please try again.'
       console.log('error', response);
-    }).then(getUser).then(function(response){
-      console.log(response);
     });
-  }
-
-  function getUser(){
-    var req = {
-      method: 'GET',
-      url: '/api/user',
-      headers: {
-        'Content-Type': undefined
-      }
-    }
-
-    return $http(req);
   }
 }]);

@@ -35,7 +35,7 @@ module.exports = function(con) {
   router.get('/loginerror', function(req, res){
     var data = {
       success: false,
-      error: 'Error loging in'
+      error: 'Error logging in'
     };
 
     res.json(data);
@@ -43,7 +43,16 @@ module.exports = function(con) {
   });
 
   router.get('/user', function(req, res){
-    res.send(req.session.passport.user.username);
+    if(req.user){
+      res.send(req.user.username);
+    }else{
+      res.send('error');
+    }
+  });
+
+  router.get('/logout', function(req, res){
+    req.logout();
+    res.send('success');
   });
 
   router.get('/forums', function(req, res){
