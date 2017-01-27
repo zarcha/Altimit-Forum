@@ -55,8 +55,18 @@ module.exports = function(con) {
     res.send('success');
   });
 
+  router.post('/register', function(req, res){
+    var stuff = con.query(`INSERT INTO users (username, password, email) VALUES ('${req.query.username}', '${req.query.password}', '${req.query.email}')`, function(err, rows){
+      if(err) {
+        console.log(err);
+      }
+
+      res.send('success');
+    });
+  });
+
   router.get('/forums', function(req, res){
-    con.query('SELECT c.id AS catagory_id, c.catagory_name, c.catagory_description, c.topic_count, c.topic_last_update, un.username AS user, f.id AS forum_id, f.forum_name, f.forum_description FROM catagories AS c LEFT JOIN forums AS f ON c.forum_id = f.id LEFT JOIN username AS un ON c.topic_last_user = un.id', function(err,rows){
+    con.query('SELECT c.id AS catagory_id, c.catagory_name, c.catagory_description, c.topic_count, c.topic_last_update, un.username AS user, f.id AS forum_id, f.forum_name, f.forum_description FROM catagories AS c LEFT JOIN forums AS f ON c.forum_id = f.id LEFT JOIN users AS un ON c.topic_last_user = un.id', function(err,rows){
       if(err) console.log(err);
 
       response = rows;
@@ -67,7 +77,7 @@ module.exports = function(con) {
   router.get('/topics', function(req, res){
     var responseToSend;
 
-    con.query('SELECT t.topic_name, t.topic_description, t.post_count, t.post_last_update, c.catagory_name, un1.username AS creator, un2.username AS last_poster FROM topics AS t LEFT JOIN username AS un1 ON t.user_id = un1.id LEFT JOIN username AS un2 ON t.post_last_user = un2.id LEFT JOIN catagories AS c ON t.catagory_id = c.id WHERE t.catagory_id = ' + req.query.catagory_id, function(err,rows){
+    con.query('SELECT t.topic_name, t.topic_description, t.post_count, t.post_last_update, c.catagory_name, c.catagory_description, un1.username AS creator, un2.username AS last_poster FROM topics AS t LEFT JOIN users AS un1 ON t.user_id = un1.id LEFT JOIN users AS un2 ON t.post_last_user = un2.id LEFT JOIN catagories AS c ON t.catagory_id = c.id WHERE t.catagory_id = ' + req.query.catagory_id, function(err,rows){
       if(err) console.log(err);
 
       responseToSend = rows;
@@ -86,7 +96,7 @@ module.exports = function(con) {
 
   //Get all posts including the posts information and its creators infomation
   router.get('/posts', function(req, res){
-    con.query('SELECT p.content, p.date, un.username, t.name FROM username AS un, topics AS t, posts AS p WHERE un.id = p.user_id and t.id = p.topic_id and p.topic_id = ' + req.query.topic_id, function(err,rows){
+    con.query('SELECT p.content, p.date, un.username, t.name FROM users AS un, topics AS t, posts AS p WHERE un.id = p.user_id and t.id = p.topic_id and p.topic_id = ' + req.query.topic_id, function(err,rows){
       if(err) console.log(err);
 
       response = rows;

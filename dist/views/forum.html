@@ -2,6 +2,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <span class="forum_title">{{forum.forum_name}}</span>
+      <span ng-show="forum.forum_description" class="forum_description"> -{{forum.forum_description}}</span>
     </div>
     <div class="panel-body list-group">
       <div class="list-group-item" ng-repeat="catagory in forum.catagories">

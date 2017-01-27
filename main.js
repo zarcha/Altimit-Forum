@@ -32,9 +32,10 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
-passport.use(new localStrategy(
-  function(username, password, done) {
-    con.query(`SELECT un.username, us.password FROM users AS us LEFT JOIN username AS un ON us.id = un.id WHERE un.username = '${username}'`, function(err, rows){
+passport.use(new localStrategy({
+  passReqToCallback : true
+}, function(username, password, done) {
+    con.query(`SELECT username, password FROM users WHERE username = '${username}'`, function(err, rows){
       if (err) { return done("stuff"); }
       var user;
 
@@ -63,7 +64,7 @@ passport.serializeUser(function(user, cb) {
 });
 
 passport.deserializeUser(function(id, cb) {
-  con.query(`SELECT un.username, us.password FROM users AS us LEFT JOIN username AS un ON us.id = un.id WHERE un.username = '${id}'`, function(err, rows){
+  con.query(`SELECT username, password FROM users WHERE username = '${id}'`, function(err, rows){
     if (err) { return done("stuff"); }
     var user;
 

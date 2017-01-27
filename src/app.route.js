@@ -16,6 +16,11 @@ angular.module('AltimitForum')
     controller: 'loginCtrl',
     controllerAs: 'Ctrl'
   })
+  .when('/register', {
+    templateUrl: 'views/register.html',
+    controller: 'registerCtrl',
+    controllerAs: 'Ctrl'
+  })
   .otherwise({
     templateUrl: '/'
   });

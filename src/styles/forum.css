@@ -3,6 +3,11 @@
   font-size: 18px;
 }
 
+.forum_description {
+  font-size: 12px;
+  color: gray;
+}
+
 .catagory_title_td {
   width: 100%;
 }

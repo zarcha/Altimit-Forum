@@ -3,6 +3,7 @@ angular.module('AltimitForum')
   var me = this;
 
   me.catagory_name = "";
+  me.catagory_description = "";
   me.topic;
 
   $http({
@@ -20,5 +21,6 @@ angular.module('AltimitForum')
     }
 
     me.catagory_name = responseTopic[0].catagory_name;
+    me.catagory_description = responseTopic[0].catagory_description;
   }
 }]);

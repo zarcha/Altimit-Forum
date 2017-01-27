@@ -42,7 +42,5 @@ angular.module('AltimitForum')
         me.forums[forum.forum_id].catagories.push(temp);
       }
     });
-
-    console.log(me.forums);
   };
 }]);

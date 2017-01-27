@@ -22,7 +22,7 @@ angular.module('AltimitForum')
   }
 
   //Login through API/passport
-  function login(){
+  function login(username, password){
     var req = {
       method: 'POST',
       url: '/api/login',
@@ -30,8 +30,8 @@ angular.module('AltimitForum')
         'Content-Type': undefined
       },
       params: {
-        username: me.username,
-        password: me.password
+        username: username,
+        password: password
       }
     }
 

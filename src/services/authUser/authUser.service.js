@@ -6,6 +6,7 @@ angular.module('Services', [])
   me.userData = null;
 
   me.getUser = getUser;
+  me.login = login;
   me.logout = logout;
 
   getUser();
@@ -27,6 +28,28 @@ angular.module('Services', [])
     })
     .catch(function(err){
       console.log(err);
+    });
+  };
+
+  function login(username, password){
+    var req = {
+      method: 'POST',
+      url: '/api/login',
+      headers: {
+        'Content-Type': undefined
+      },
+      params: {
+        username: username,
+        password: password
+      }
+    }
+
+    return $http(req).then(function(response){
+      me.errorMessage = '';
+    },
+    function(response){
+      me.errorMessage = 'An error occured during login. Please try again.'
+      console.log('error', response);
     });
   };
 

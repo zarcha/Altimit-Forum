@@ -1,5 +1,8 @@
 <div class="panel panel-default">
-  <div class="panel-heading catagory_title">{{Ctrl.catagory_name}}</div>
+  <div class="panel-heading">
+    <span class="catagory_title">{{Ctrl.catagory_name}}</span>
+    <span ng-show="Ctrl.catagory_description" class="catagory_description"> -{{Ctrl.catagory_description}}</span>
+  </div>
   <div class="panel-body list-group">
     <div class="list-group-item" ng-repeat="topic in Ctrl.topic">
       <table>
@@ -7,7 +10,7 @@
           <td class="topic_title_td">
             <div class="list-group-heading">
               <a class="topic_title" href="#!/topic/{{topic_id}}">{{topic.topic_name}}</a>
-              <p class="topic_description">- {{topic.topic_description}}</p>
+              <p ng-show="topic.topic_description" class="topic_description">- {{topic.topic_description}}</p>
             </div>
           </td>
           <td>
