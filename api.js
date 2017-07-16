@@ -18,8 +18,7 @@ module.exports = function(con) {
   router.post('/login',
     passport.authenticate('local', {
       successRedirect: '/api/loginsuccess',
-      failureRedirect: '/api/loginerror',
-      failureFlash: true
+      failureRedirect: '/api/loginerror'
     })
   );
 

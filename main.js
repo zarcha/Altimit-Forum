@@ -5,7 +5,7 @@ passport = require('passport'),
 localStrategy = require('passport-local').Strategy;
 
 var con = mysql.createConnection({
-  host: 'altimit-servers.com',
+  host: 'localhost',
   user: 'zarch',
   password: 'Kimberly2',
   database: 'altimit_db'
